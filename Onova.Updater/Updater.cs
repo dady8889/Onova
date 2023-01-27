@@ -41,10 +41,18 @@ public class Updater : IDisposable
     {
         var updateeDirPath = Path.GetDirectoryName(_updateeFilePath);
 
+        if (updateeDirPath == null)
+        {
+            WriteLog("Updatee file path is null.");
+            return;
+        }
+
+        Thread.Sleep(500);
+
         // Wait until updatee is writable to ensure all running instances have exited
         WriteLog("Waiting for all running updatee instances to exit...");
         while (!FileEx.CheckWriteAccess(_updateeFilePath))
-            Thread.Sleep(100);
+            Thread.Sleep(500);
 
         // Copy over the package contents
         WriteLog("Copying package contents from storage to updatee's directory...");

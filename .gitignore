@@ -4,6 +4,7 @@
 *.userosscache
 *.sln.docstates
 .idea/
+.vs/
 
 # Build results
 [Dd]ebug/
@@ -19,3 +20,4 @@ bld/
 
 # Coverage
 *.opencover.xml
+/Onova.Updater/Properties/launchSettings.json

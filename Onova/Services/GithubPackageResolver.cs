@@ -114,7 +114,7 @@ public class GithubPackageResolver : IPackageResolver
                 var assetUrl = assetJson.GetProperty("url").GetString();
 
                 // See if name matches
-                if (string.IsNullOrWhiteSpace(assetName) || !WildcardPattern.IsMatch(assetName, _assetNamePattern))
+                if (string.IsNullOrWhiteSpace(assetName) || !WildcardPattern.IsMatch(assetName, _assetNamePattern) || assetUrl == null)
                     continue;
 
                 // Add to dictionary

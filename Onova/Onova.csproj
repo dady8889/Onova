@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net462;netcoreapp3.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netcoreapp3.0;net7.0</TargetFrameworks>
     <IsPackable>true</IsPackable>
   </PropertyGroup>
 
@@ -45,7 +45,7 @@
     <Reference Include="System.IO.Compression" />
   </ItemGroup>
 
-  <!-- Non-linking dependency on the updater project to ensure correct build order -->
+  <!-- Non-linking dependency on the updater project to ensure correct build order 
   <ItemGroup>
     <ProjectReference Include="..\Onova.Updater\Onova.Updater.csproj">
       <GlobalPropertiesToRemove>TargetFramework</GlobalPropertiesToRemove>
@@ -54,11 +54,11 @@
       <LinkLibraryDependencies>false</LinkLibraryDependencies>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
-  </ItemGroup>
+  </ItemGroup>-->
 
   <!-- Embed the updater executable -->
   <ItemGroup>
-    <EmbeddedResource Include="../Onova.Updater/bin/$(Configuration)/net35/Onova.Updater.exe">
+    <EmbeddedResource Include="..\Onova.Updater\bin\Release\net7.0\publish\win-x64\Onova.Updater.exe">
       <Link>Updater.exe</Link>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <Visible>false</Visible>
